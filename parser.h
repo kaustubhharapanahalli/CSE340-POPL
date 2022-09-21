@@ -12,12 +12,15 @@
 
 class Parser {
  public:
+  void parseInput();
   void parse_input();
   void readAndPrintAllInput();
 
  private:
   LexicalAnalyzer lexer;
   void syntax_error();
+  void expression_syntax_error(Token token_id);
+  Token expect_expr(TokenType expected_type, Token token_id);
   Token expect(TokenType expected_type);
   void parse_tokens_section();
   void parse_token_list();
