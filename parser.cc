@@ -17,7 +17,6 @@
 // syntax error when required.
 std::vector<Token> track_token;
 std::vector<std::string> track_semantic_error_messages;
-std::string semantic_error_message;
 
 // The below set of code is to read the input provided in the Token section
 
@@ -32,6 +31,17 @@ void Parser::syntax_error() {
 void Parser::expression_syntax_error(Token token_id) {
   std::cout << "SYNTAX ERROR IN EXPRESSION OF " + token_id.lexeme << std::endl;
   exit(1);
+}
+
+void Parser::semantic_error() {
+  if (~track_semantic_error_messages.empty()) {
+    for (int i = 0; i < static_cast<int>(track_semantic_error_messages.size());
+         i++) {
+      std::cout << track_semantic_error_messages[i] << std::endl;
+    }
+    exit(1);
+  }
+  return;
 }
 
 /*
@@ -91,6 +101,11 @@ void Parser::readAndPrintAllInput() {
 void Parser::parseInput() {
   parse_input();
   expect(END_OF_FILE);
+
+  // Once what type of error needs to be printed is checked, then we go ahead
+  // and print that error here. If there are errors, we exit out of the program,
+  // if not, we continue with lexical analysis of the input data.
+  semantic_error();
 }
 
 /*
@@ -165,6 +180,7 @@ void Parser::parse_token() {
     for (int i = 0; i < static_cast<int>(track_token.size()); i++) {
       if (track_token[i].lexeme == token_id.lexeme) {
         counter = 1;
+        std::string semantic_error_message;
 
         semantic_error_message = "Line " + std::to_string(token_id.line_no) +
                                  ": " + track_token[i].lexeme +
@@ -205,7 +221,7 @@ void Parser::parse_expr(Token token_id) {
   // If token type is Character, then we expect CHAR. After that, we can have
   // multiple input types like: LPAREN, RPAREN. If not it will throw a syntax
   // error
-  if ((token_object_1.token_type == CHAR)) {
+  if (token_object_1.token_type == CHAR) {
     expect_expr(CHAR, token_id);
   } else if (token_object_1.token_type == LPAREN) {
     // Parsing process for left paranthesis
@@ -250,8 +266,4 @@ int main() {
   Parser parser;
   // parser.readAndPrintAllInput();
   parser.parseInput();
-  for (int i = 0; i < static_cast<int>(track_semantic_error_messages.size());
-       i++) {
-    std::cout << track_semantic_error_messages[i] << std::endl;
-  }
 }
