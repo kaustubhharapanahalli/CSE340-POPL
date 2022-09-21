@@ -21,18 +21,28 @@ std::vector<std::string> track_semantic_error_messages;
 // The below set of code is to read the input provided in the Token section
 
 /*
- *  Functions provides a simplified way of throwing syntax error.
+ * Function provides a simplified way of throwing general syntax error.
  */
 void Parser::syntax_error() {
   std::cout << "SNYTAX ERORR" << std::endl;
   exit(1);
 }
 
+/*
+ * Function provides a simplified way of throwing expression syntax error.
+ *
+ * Written by: Kaustubh Manoj Harapanahalli
+ */
 void Parser::expression_syntax_error(Token token_id) {
   std::cout << "SYNTAX ERROR IN EXPRESSION OF " + token_id.lexeme << std::endl;
   exit(1);
 }
 
+/*
+ * Function provides a simplified way of throwing semantic error.
+ *
+ * Written by: Kaustubh Manoj Harapanahalli
+ */
 void Parser::semantic_error() {
   if (~track_semantic_error_messages.empty()) {
     for (int i = 0; i < static_cast<int>(track_semantic_error_messages.size());
@@ -58,6 +68,15 @@ Token Parser::expect(TokenType expected_type) {
   return token_object;
 }
 
+/*
+ * Function to check if the definition of the token id is defined according to
+ * the rules or not.
+ *
+ * GRAMMAR:
+ * ID -> LETTER . CHAR*
+ *
+ * Written by: Kaustubh Manoj Harapanahalli
+ */
 Token Parser::expect_expr(TokenType expected_type, Token token_id) {
   Token token_object = lexer.GetToken();
 
@@ -106,6 +125,13 @@ void Parser::parseInput() {
   // and print that error here. If there are errors, we exit out of the program,
   // if not, we continue with lexical analysis of the input data.
   semantic_error();
+
+  // TODO(kaustubh): Define Epsilon error
+  // epsilon_error();
+
+  // if no errors above, print the output
+  // TODO(kaustubh): Define displaying output
+  // display_output();
 }
 
 /*
@@ -218,10 +244,7 @@ void Parser::parse_token() {
 void Parser::parse_expr(Token token_id) {
   Token token_object_1 = lexer.peek(1);
 
-  // If token type is Character, then we expect CHAR. After that, we can have
-  // multiple input types like: LPAREN, RPAREN. If not it will throw a syntax
-  // error
-  if (token_object_1.token_type == CHAR) {
+    if (token_object_1.token_type == CHAR) {
     expect_expr(CHAR, token_id);
   } else if (token_object_1.token_type == LPAREN) {
     // Parsing process for left paranthesis
