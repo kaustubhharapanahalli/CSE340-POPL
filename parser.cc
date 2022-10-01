@@ -139,13 +139,6 @@ void Parser::parseInput() {
     semantic_error();
   }
   my_lexer.my_get_token();
-
-  // TODO(kaustubh): Define Epsilon error
-  // epsilon_error();
-
-  // if no errors above, print the output
-  // TODO(kaustubh): Define displaying output
-  // display_output();
 }
 
 /*
@@ -366,8 +359,6 @@ struct RegularExpressionGraph *Parser::parse_expr(Token token_id) {
     expression_syntax_error(token_id);
   }
 
-  std::cout << "EPSILON IS NOOOOOOOT A TOKEN !!! " << token_id.lexeme
-            << std::endl;
   return NULL;
 }
 
@@ -475,28 +466,26 @@ void myLexicalAnalyzer::check_epsilon() {
     start = 0;
 
     while (start != splits[i].size()) {
-      int max = 0;
       std::vector<tokenReg> tokens = get_tokens_list();
 
       for (it = tokens.begin(); it != tokens.end(); ++it) {
         tokenReg &reg = *it;
         int lex_size = match(reg.reg, splits[i], start);
 
-        if (lex_size > max) {
-          max = lex_size;
-          lex = reg.token_name;
+        if (lex_size > 0) {
+          lex.append(" ");
+          lex.append(reg.token_name);
         }
       }
 
-      if (max > 0) {
-        std::cout << "EPSILON IS NOOOOOOOT A TOKEN !!! " << lex << std::endl;
+      if (!lex.empty()) {
+        std::cout << "EPSILON IS NOOOOOOOT A TOKEN !!!" << lex << std::endl;
         exit(1);
       }
 
-      if (max == 0) {
+      if (lex.empty()) {
         return;
       }
-      start += max;
     }
   }
 }
