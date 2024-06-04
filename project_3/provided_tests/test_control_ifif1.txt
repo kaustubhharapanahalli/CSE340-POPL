@@ -1,0 +1,31 @@
+
+a , b ;
+{
+input a;
+input b;
+IF  a > b
+{
+	output b;
+	output a;
+	a = a + b; 
+	output a;
+	b = a + b;
+	output b;
+} 
+
+a = a + b;
+output a;
+
+IF a > b
+{
+	input a;
+	output b;
+	output a;
+	a = a + b; 
+	output a;
+	b = a + b;
+	output b;
+}
+
+}
+2 3 4 4 5 2

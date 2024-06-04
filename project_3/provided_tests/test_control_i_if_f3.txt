@@ -1,0 +1,17 @@
+
+a , b  ;
+{
+input a;
+input b;
+IF b > a {
+        a = a+b;
+	output a ; 
+	input a;
+	input b;
+	IF a > b { 
+		output a;
+	}
+}
+
+}
+2 3 4 1 9 8 33 1

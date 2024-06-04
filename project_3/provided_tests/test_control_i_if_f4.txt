@@ -1,0 +1,29 @@
+
+a , b ;
+{
+input a;
+input b;
+IF b > a {
+        a = a+b;
+	output a;
+	IF a > b { 
+		output a;
+	}
+	a = a+b;
+	output a;
+}
+a = a*b;
+output a;
+output b;
+
+input a;
+input b;
+
+b = b * a;
+a = a * b;
+
+output a;
+output b;
+
+}
+34 12 24 32 9 0 1 3

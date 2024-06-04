@@ -1,0 +1,16 @@
+
+a , b ;
+{
+input a;
+input b;
+IF  a <> b
+{
+	output b;
+	output a;
+	a = a + b; 
+	output a;
+	b = a + b;
+	output b;
+}
+}
+7 9

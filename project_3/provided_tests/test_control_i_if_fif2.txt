@@ -1,0 +1,56 @@
+
+a , b , c, d ;
+{
+input c;
+input d;
+c = c + d;
+d = c + d;
+IF d > c {
+	output a;
+	output b;
+	output c;
+	output d;
+}
+a = 1  ;
+b = 2 ;
+IF b > a {
+	output a;
+	output b;
+	output c;
+	output d;
+}
+	
+input a;
+input b;
+ 
+IF  b > a {
+        a = a+b;
+	output a;
+	IF a > b { 
+		output a;
+		b = a+b;
+		IF b > a {
+			output a;
+			output b;
+			IF a > b {
+				output a;
+				output b;
+			}
+		}
+	}
+	a = a+b;
+	output a;
+}
+a = a*b;
+output a;
+output b;
+IF a > b {
+	output a;
+	b = 1;
+	a = a+b;
+	output a;
+	output b;
+}
+
+}
+4 5 29 13 9

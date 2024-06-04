@@ -1,0 +1,19 @@
+
+a , b ;
+{
+a = 1  ;
+b = 2 ; 
+IF  a <> b
+{	output b;
+	output a;
+	a = a + b; 
+	output a;
+	b = a + b;
+	output b;
+}
+input a;
+a = a + b;
+output a;
+
+}
+2 3 4 6

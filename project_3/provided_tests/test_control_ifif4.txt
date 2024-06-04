@@ -1,0 +1,43 @@
+
+a , b, c, d ;
+{
+a = 1  ;
+b = 2 ; 
+IF  a > b
+{
+	output b;
+	output a;
+	a = a + b; 
+	output a;
+	b = a + b;
+	output b;
+}
+input c;
+input d;
+
+c = a + b;
+output c;
+d = c + a;
+output d;
+c = d;
+output c;
+
+a = a + b;
+output a;
+
+IF b > a 
+{
+	output b;
+	output a;
+	a = a - b; 
+	output a;
+	b = a + b;
+	output b;
+}
+
+a = a * b;
+output a;
+
+}
+
+6 7 12

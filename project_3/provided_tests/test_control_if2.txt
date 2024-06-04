@@ -1,0 +1,13 @@
+
+a , b ;
+
+{
+a = 1  ;
+input b;
+IF a <> b
+{
+	output a;
+} 
+output b;
+}
+2 3
