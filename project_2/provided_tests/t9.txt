@@ -1,0 +1,7 @@
+SCALAR x y z
+ARRAY a b c
+{
+x = a[x]+z[x];
+y = 2;
+a[.] = c+b;  
+}

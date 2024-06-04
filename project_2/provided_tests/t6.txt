@@ -1,0 +1,6 @@
+SCALAR x y z
+ARRAY a b c
+{
+x = (a[.]*b[.])*b[.];
+a = (x*y)+a[.];
+}

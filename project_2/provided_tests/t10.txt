@@ -1,0 +1,7 @@
+SCALAR x y z
+ARRAY a b c
+{
+a[.] = (x*y)+(y*z);
+y = 2;
+z = a[.]+(b[.]+c[.]);  
+}
