@@ -1,0 +1,2 @@
+tsTok1 _ , tsTok2 (b)* , tsTok3 ((b).(c))* , tsTok4 a, tsTok5 b, tsTok6 (_).(_) , aAes1 (((_).(_))|(_))* , bSta2 ((b)|(_))|((c).(d)) , fsTok2 ((((F)*).((Q).(h)))|(k))* #
+" abcde bb bc ab aaa bcd bcd FFFFFQhk kQhFFF kFFFF "
