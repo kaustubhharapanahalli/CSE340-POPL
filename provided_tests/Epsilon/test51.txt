@@ -1,2 +1,0 @@
-fsTok2 ((((F)*).((Q).(h)))|(k))* #
-" FFFFFQhk kQhFFF kFFFF "

@@ -1,2 +1,0 @@
-t7 (((a).(b))*).((a).(b)) #
- ababab  abababab "

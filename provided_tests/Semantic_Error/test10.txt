@@ -1,4 +1,0 @@
-t1b (((t)|(y))*).((t).(y)),
-t1b (((t)|(y))*).((f).(m)),
-t1b (((t)|(y))*).((t).(g)) #
-" tytyyttt yyttyt ty "

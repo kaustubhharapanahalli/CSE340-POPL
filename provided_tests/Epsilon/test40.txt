@@ -1,2 +1,0 @@
-tsTok1 _ #
-" abcde "

@@ -1,2 +1,0 @@
-t4 ((f)*).(f) #
-" fff f ffffff "
